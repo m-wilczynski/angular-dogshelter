@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-
-namespace DogShelter
+﻿namespace TIN.Angular
 {
     using Data;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
 
     public class Startup
     {
@@ -32,7 +27,12 @@ namespace DogShelter
         {
             // Add framework services.
             services.AddMvc();
-            services.AddCors(c => c.All);
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAnything",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyHeader().AllowAnyMethod());
+            });
             services.AddDbContext<DogContext>(options => options.UseSqlite(Configuration["Data:ConnectionString"]));
         }
 
@@ -45,7 +45,7 @@ namespace DogShelter
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
-            app.UseCors(c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            app.UseCors("AllowAnything");
         }
     }
 }

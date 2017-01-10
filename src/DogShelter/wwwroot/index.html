@@ -1,12 +1,18 @@
 ﻿<!DOCTYPE html>
-<html ng-app>
+<html ng-app="dogShelterApp">
 <head>
     <meta charset="utf-8" />
     <title>Dog Shelter</title>
     <link rel="stylesheet" href="lib/bulma/css/bulma.min.css" />
     <script src="lib/angular/angular.js"></script>
 </head>
-<body>
-    <p>1 + 2 = {{1 + 2}}</p>
+<body ng-controller="DogListController">
+<table>
+    <tbody>
+    <tr ng-repeat="dog in dogs">
+        <td>{dog.name}</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿namespace DogShelter.Model
+﻿namespace TIN.Angular.Model
 {
     using System;
 

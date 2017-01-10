@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
-using DogShelter.Data;
-
-namespace DogShelter.Migrations
+﻿namespace TIN.Angular.Migrations
 {
+    using System;
+    using Data;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Infrastructure;
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     [DbContext(typeof(DogContext))]
     [Migration("20170109114235_Initial")]
     partial class Initial

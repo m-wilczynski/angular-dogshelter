@@ -1,4 +1,4 @@
-﻿namespace DogShelter.Data
+﻿namespace TIN.Angular.Data
 {
     using Microsoft.EntityFrameworkCore;
     using Model;

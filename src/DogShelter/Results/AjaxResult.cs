@@ -1,4 +1,4 @@
-﻿namespace DogShelter.Results
+﻿namespace TIN.Angular.Results
 {
     public class AjaxResult
     {
