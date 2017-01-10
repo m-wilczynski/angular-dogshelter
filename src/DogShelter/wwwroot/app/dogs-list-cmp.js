@@ -25,29 +25,35 @@ angular.module("dogShelterApp").component("dogsList",
             "</tbody>" +
         "</table>" +
         "</div>",
-    controller: function DogListController() {
-        this.dogs = [
-            {
-                name: "Piksel",
-                age: 10,
-                broughtToShelter: "01-10-2017",
-                careTaker: "Michal",
-                adopted: true
-            },
-            {
-                name: "Zuzia",
-                age: 4,
-                broughtToShelter: "01-10-2017",
-                careTaker: "Michal",
-                adopted: true
-            },
-            {
-                name: "Ruby",
-                age: 7,
-                broughtToShelter: "01-10-2017",
-                careTaker: "Michal",
-                adopted: true
-            }
-        ];
+    controller: function DogListController($http) {
+        var self = this;
+        self.orderProp = "name";
+
+        $http.get('api/dog/').then(function(response) {
+            self.dogs = response.data;
+        });
+        //this.dogs = [
+        //    {
+        //        name: "Piksel",
+        //        age: 10,
+        //        broughtToShelter: "01-10-2017",
+        //        careTaker: "Michal",
+        //        adopted: true
+        //    },
+        //    {
+        //        name: "Zuzia",
+        //        age: 4,
+        //        broughtToShelter: "01-10-2017",
+        //        careTaker: "Michal",
+        //        adopted: true
+        //    },
+        //    {
+        //        name: "Ruby",
+        //        age: 7,
+        //        broughtToShelter: "01-10-2017",
+        //        careTaker: "Michal",
+        //        adopted: true
+        //    }
+        //];
     }
 });
