@@ -10,3 +10,17 @@
 .table {
     border: 1px solid #e6e6e6;
 }
+
+.table thead, table thead th {
+    background-color: #70aec5;
+}
+
+.table thead th {
+    font-weight: 600;
+    color:white
+}
+
+.table thead:hover, #table-header:hover {
+    background-color: #70aec5;
+    color: white;
+}

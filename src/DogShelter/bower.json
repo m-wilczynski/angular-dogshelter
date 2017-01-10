@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "angular": "1.5.5",
+    "angular-route": "1.5.5", 
     "bulma": "0.0.24"
   }
 }

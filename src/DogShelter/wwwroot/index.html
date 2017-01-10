@@ -3,17 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <title>Dog Shelter</title>
-    <link rel="stylesheet" href="lib/bulma/css/bulma.css" />
+    <link rel="stylesheet" href="lib/bulma/css/bulma.min.css" />
     <link rel="stylesheet" href="app/app.css"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet">
     <script src="lib/angular/angular.js"></script>
-    <script src="app/app.js"></script>
-    <script src="app/dogs-list-cmp.js"></script>
+    <script src="lib/angular-route/angular-route.min.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/dog-list/dog-list.module.js"></script>
+    <script src="app/dog-list/dog-list.component.js"></script>
 </head>
 <body>
-    <div id="logo" class="has-text-centered">
-        <img src="img/logo.png" />   
-    </div>
-    <dogs-list></dogs-list>
+<div id="logo" class="has-text-centered">
+    <img src="img/logo.png" />   
+</div>
+<div ng-view>
+    <dog-list></dog-list>
+</div>
 </body>
 </html>

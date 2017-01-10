@@ -1,12 +1,12 @@
 ﻿"use strict";
 
-angular.module("dogShelterApp").component("dogsList",
+angular.module("dogShelterApp").component("dogList",
 {
     template:
         "<div class='container'>" +
         "<table class='table'>" +
             "<thead>" +
-                "<tr>" +
+                "<tr id='table-header'>" +
                     "<th>Name</th>" +
                     "<th>Age</th>" +
                     "<th>Brought to shelter on</th>" +
