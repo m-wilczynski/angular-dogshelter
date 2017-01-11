@@ -2,6 +2,11 @@
     font-family: 'Source Sans Pro';
 }
 
+@font-face {
+    font-family: Luna;
+    src: url(../font/Luna.ttf);
+}
+
 #logo {
     margin-top: 25px;
     margin-bottom: 10px;
@@ -54,4 +59,81 @@
 .tabs a:hover {
     color: gray;
     border-bottom: 1px solid #ababab;
+}
+
+.card {
+    width: 600px;
+    margin: 45px auto;
+}
+
+.custom-card-header {
+    border-bottom: 5px solid #70aec5;
+    padding: 20px 0 10px 0;
+}
+
+.custom-card-header-title {
+    padding: 25px 0 5px 0;
+    color: #5d8492;
+    font-weight: 500;
+    max-width: 350px;
+    margin: 0 auto;
+    width: auto;
+    text-align: center;
+    font-family: "Luna";
+    font-size: 24px;
+    color: #598a9c;
+}
+
+.custom-card-header-title p {
+    display: inline-block;
+}
+
+.custom-card-header img {
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
+}
+
+.card-content {
+    padding: 35px;
+}
+
+.title.is-4 {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.sex-wrapper {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 150px;
+    padding-bottom: 10px;
+}
+
+.sex-wrapper div {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 600;
+}
+
+.sex-text {
+    height: 24px;
+    line-height: 24px;
+}
+
+.details-table {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.card-footer-item {
+    font-size: 14px;
+    font-weight: 600;
+    color: #77aabd;
+}
+
+.edit-table {
+    width: 70%;
+    margin: 0 auto;
 }

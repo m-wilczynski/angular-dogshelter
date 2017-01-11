@@ -2,14 +2,7 @@
 
 angular.module("dogDetails").component("dogDetails",
 {
-    template:
-        "<div class='container'>" +
-            "<div>{{$ctrl.dog.name}}</div>" +
-            "<div>{{$ctrl.dog.age}}</div>" +
-            "<div>{{$ctrl.dog.broughtToShelter}}</div>" +
-            "<div>{{$ctrl.dog.careTaker}}</div>" +
-            "<div>{{$ctrl.dog.adopted}}</div>" +
-        "</div>",
+    templateUrl:  'app/dog-details/dog-details.template.html',
     controller: ['$routeParams', '$http',
         function DogDetailsController($routeParams, $http) {
             var self = this;

@@ -1,7 +1,66 @@
 ﻿<div class='container'>
-    <div>{{dog.name}}</div>
-    <div>{{dog.age}}</div>
-    <div>{{dog.broughtToShelter}}</div>
-    <div>{{dog.careTaker}}</div>
-    <div>{{dog.adopted}}</div>
+    <div class="card">
+        <div class="custom-card-header">
+            <div class="custom-card-header-title title is-4">
+                {{$ctrl.dog.name}}
+            </div>
+            <div class="sex-wrapper">
+                <div>
+                    <img ng-src="{{$ctrl.dog.male ? 'img/male.png' : 'img/female.png'}}"/>
+                </div>
+                <div class="sex-text">{{$ctrl.dog.male ? 'Male' : 'Female'}}</div>
+            </div>
+        </div>
+        <div class="card-content">
+            <table class="details-table">
+                <tbody>
+                <tr>
+                    <td>
+                        <strong>Age</strong>
+                    </td>
+                    <td>{{$ctrl.dog.age}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Brought to shelter</strong>
+                    </td>
+                    <td>{{$ctrl.dog.broughtToShelter}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Caretaker</strong>
+                    </td>
+                    <td>{{$ctrl.dog.careTaker}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Caretaker contact</strong>
+                    </td>
+                    <td>{{$ctrl.dog.careTakerContact}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Adopted</strong>
+                    </td>
+                    <td>{{$ctrl.dog.adopted ? "YES" : "NO"}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Adopted on</strong>
+                    </td>
+                    <td>{{$ctrl.dog.adoptedOn}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <br/>
+            <div class="box">
+                <div class="content">
+                    <p>{{$ctrl.dog.description}}</p>
+                </div>
+            </div>
+        </div>
+        <footer class="card-footer">
+            <a class="card-footer-item">Edit</a>
+        </footer>
+    </div>
 </div>

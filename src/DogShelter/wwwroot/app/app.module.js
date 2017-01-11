@@ -3,7 +3,8 @@
 var dogShelterApp = angular.module("dogShelterApp", [
     "ngRoute",
     "dogList",
-    "dogDetails"
+    "dogDetails",
+    "dogEdit"
 ]);
 
 dogShelterApp.config(['$locationProvider', '$routeProvider',
@@ -16,6 +17,13 @@ dogShelterApp.config(['$locationProvider', '$routeProvider',
           }).
           when('/:dogId', {
               template: '<dog-details></dog-details>'
+          }).
+          when('/edit/:dogId', {
+              template: '<dog-edit></dog-edit>'
+          }).
+          when('/add/',
+          {
+            template: '<dog-add></dog-add>'
           }).
           otherwise('/');
     }
