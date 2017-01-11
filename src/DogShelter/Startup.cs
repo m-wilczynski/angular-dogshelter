@@ -61,7 +61,7 @@
                 }
             });
 
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc();
             app.UseCors("AllowAnything");
         }
     }
