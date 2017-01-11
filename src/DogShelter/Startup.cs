@@ -1,5 +1,6 @@
 ﻿namespace TIN.Angular
 {
+    using System.IO;
     using Data;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -44,6 +45,22 @@
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
+
+            app.Use(async (context, next) =>
+            {
+                await next();
+                if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
+                {
+                    context.Request.Path = "/index.html";
+                    await next();
+                }
+                else if (!context.Request.Path.ToString().Contains("/api"))
+                {
+                    context.Request.Path = "/index.html";
+                    await next();
+                }
+            });
+
             app.UseMvcWithDefaultRoute();
             app.UseCors("AllowAnything");
         }

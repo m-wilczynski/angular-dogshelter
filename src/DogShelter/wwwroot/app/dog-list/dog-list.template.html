@@ -1,0 +1,22 @@
+﻿<div class='container'>
+    <table class='table'>
+        <thead>
+        <tr id='table-header'>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Brought to shelter on</th>
+            <th>Caretaker</th>
+            <th>Adopted?</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="dog in $ctrl.dogs">
+            <td>{{dog.name}}</td>
+            <td>{{dog.age}}</td>
+            <td>{{dog.broughtToShelter}}</td>
+            <td>{{dog.careTaker}}</td>
+            <td>{{dog.adopted}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
