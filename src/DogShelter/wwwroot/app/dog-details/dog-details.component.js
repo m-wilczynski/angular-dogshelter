@@ -10,7 +10,7 @@
                 var self = this;
                 self.orderProp = "name";
 
-                $http.get('api/dog/' + $routeParams.dogId).then(function(response) {
+                $http.get('api/dog/' + $routeParams.dogId).then(function (response) {
                     self.dog = response.data;
                 });
             }

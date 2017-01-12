@@ -40,9 +40,9 @@
                         <td>
                             <input class="input" type="date" ng-model="dog.BroughtToShelter" name="dBrought" required=""/>
                         </td>
-                    </tr>
-                    <tr ng-show="form.$submitted || form.dBrought.$touched">
-                        <td colspan="2" class="error-small" ng-show="form.dBrought.$error.required">Brought to shelter date is required!</td>
+                        <td ng-show="form.$submitted || form.dBrought.$touched">
+                            <div colspan="2" class="error-small" ng-show="form.dBrought.$error.required">Brought to shelter date is required!</div>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -68,9 +68,9 @@
                             <label class="radio"><input type="radio" ng-model="dog.Adopted" name="dAdopted" value="true" required=""/>Yes</label>
                             <label class="radio"><input type="radio" ng-model="dog.Adopted" name="dAdopted" value="false" required=""/>No</label>
                         </td>
-                    </tr>
-                    <tr ng-show="form.dBrought.$touched">
-                        <td colspan="2" class="error-small" ng-show="form.dAdopted.$error.required">Information if adopted is required!</td>
+                        <td ng-show="form.$submitted">
+                            <div colspan="2" class="error-small" ng-show="form.dAdopted.$error.required">Information if adopted is required!</div>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -86,7 +86,7 @@
                 </table>
                 <br />
                 <div class="box">
-                    <textarea class="textarea" placeholder="Enter description..." ng-model="dog.Description" name="dDescription"></textarea>
+                    <textarea class="textarea" placeholder="Enter description..." ng-model="dog.Description" name="dDescription" required=""></textarea>
                 </div>
                 <div ng-show="form.$submitted || form.dDescription.$touched">
                     <div class="error-small" ng-show="form.dDescription.$error.required">Description is required!</div>
