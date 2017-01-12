@@ -1,8 +1,9 @@
-﻿namespace TIN.Angular.Migrations
-{
-    using System;
-    using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore.Migrations;
 
+namespace DogShelter.Migrations
+{
     public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -12,12 +13,13 @@
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Adopted = table.Column<bool>(nullable: false),
                     AdoptedOn = table.Column<DateTime>(nullable: true),
-                    Age = table.Column<uint>(nullable: false),
+                    Age = table.Column<double>(nullable: false),
                     BroughtToShelter = table.Column<DateTime>(nullable: false),
                     CareTaker = table.Column<string>(nullable: true),
+                    CareTakerPhone = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Male = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: true)

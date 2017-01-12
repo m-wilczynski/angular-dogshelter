@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using TIN.Angular.Data;
 
-namespace TIN.Angular.Migrations
+namespace DogShelter.Migrations
 {
     [DbContext(typeof(DogContext))]
-    [Migration("20170111204332_CaretakerPhone")]
-    partial class CaretakerPhone
+    [Migration("20170112002747_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,7 +25,7 @@ namespace TIN.Angular.Migrations
 
                     b.Property<DateTime?>("AdoptedOn");
 
-                    b.Property<uint>("Age");
+                    b.Property<double>("Age");
 
                     b.Property<DateTime>("BroughtToShelter");
 

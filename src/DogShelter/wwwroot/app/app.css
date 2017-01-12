@@ -84,6 +84,14 @@
     color: #598a9c;
 }
 
+.custom-card-header-title input {
+    text-align: center;
+    font-family: "Luna";
+    font-size: 24px;
+    color: #598a9c;
+    height: 48px;
+}
+
 .custom-card-header-title p {
     display: inline-block;
 }
@@ -136,4 +144,65 @@
 .edit-table {
     width: 70%;
     margin: 0 auto;
+}
+
+.edit-table td {
+    min-width: 125px;
+    float: left;
+}
+
+.edit-table tr {
+    height: 30px;
+    min-height: 30px;
+}
+
+.input {
+    border: 0 solid;
+    border-bottom: 2px solid #d3d6db;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.sex-choice {
+    margin-top: 25px;
+}
+
+.radio input {
+    margin-right: 5px;
+}
+
+.radio {
+    font-weight: 600;
+}
+
+.error-big, .error-small {
+    color: rgb(255, 69, 69);
+}
+
+.error-big {
+    padding: 5px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.error-small {
+    text-align: left;
+    font-weight: 600;
+}
+
+input[type=submit] {
+    background: none;
+    border: none;
+    font-family: 'Source Sans Pro'
+}
+
+input[type=submit]:hover {
+    color: #222324;
+}
+
+.edit-table .input {
+    width: 100%;
+    min-width: 200px;
+    height: 24px;
 }

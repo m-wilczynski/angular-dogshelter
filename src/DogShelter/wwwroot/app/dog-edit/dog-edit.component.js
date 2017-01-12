@@ -6,11 +6,13 @@ angular.module("dogEdit").component("dogEdit",
     controller: ['$routeParams', '$http',
         function DogEditController($scope, $http) {
 
-            $scope.model = {};
-            $scope.submit = function(dog) {
-                console.log(dog);
+            this.model = {};
+            this.submit = function (form, dog) {
+                if (form.$valid) {
+                    alert(dog);
+                }
             }
-            $scope.dog = angular.copy($scope.model);
+            this.dog = angular.copy($scope.model);
         }
     ]
 });

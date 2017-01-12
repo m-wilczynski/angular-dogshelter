@@ -21,9 +21,8 @@ dogShelterApp.config(['$locationProvider', '$routeProvider',
           when('/edit/:dogId', {
               template: '<dog-edit></dog-edit>'
           }).
-          when('/add/',
-          {
-            template: '<dog-add></dog-add>'
+          when('/add/', {
+              template: '<dog-add></dog-add>'
           }).
           otherwise('/');
     }

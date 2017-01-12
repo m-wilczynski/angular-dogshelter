@@ -1,64 +1,99 @@
-﻿<div class='container' ng-controller="DogEditController">
-    <form>
+﻿<div class='container'>
+    <form name="form" novalidate>
         <div class="card">
             <div class="custom-card-header">
                 <div class="custom-card-header-title title is-4">
-                    {{$ctrl.dog.name}}
+                    <input class="input" type="text" ng-model="dog.name" name="dName" placeholder="Enter dog name..." required="" />
+                    <div ng-show="form.$submitted || form.dName.$touched">
+                        <div class="error-big" ng-show="form.dName.$error.required">Name is required!</div>
+                    </div>
                 </div>
                 <div class="sex-wrapper">
-                    <div class="sex-text">{{$ctrl.dog.male ? 'Male' : 'Female'}}</div>
+                    <div class="sex-choice">
+                        <label class="radio"><input type="radio" ng-model="dog.male" name="dGender" value="true" required=""/>Male</label>
+                        <label class="radio"><input type="radio" ng-model="dog.male" name="dGender" value="false" required=""/>Female</label>
+                    </div>
+                    <div ng-show="form.$submitted">
+                        <div class="error-small" ng-show="form.dGender.$error.required">Gender is required!</div>
+                    </div>
                 </div>
             </div>
             <div class="card-content">
                 <table class="edit-table">
                     <tbody>
-                        <tr>
-                            <td>
-                                <strong>Age</strong>
-                            </td>
-                            <td>{{$ctrl.dog.age}}</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong>Brought to shelter</strong>
-                            </td>
-                            <td>{{$ctrl.dog.broughtToShelter}}</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong>Caretaker</strong>
-                            </td>
-                            <td>{{$ctrl.dog.careTaker}}</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong>Caretaker contact</strong>
-                            </td>
-                            <td>{{$ctrl.dog.careTakerContact}}</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong>Adopted</strong>
-                            </td>
-                            <td>{{$ctrl.dog.adopted ? "YES" : "NO"}}</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong>Adopted on</strong>
-                            </td>
-                            <td>{{$ctrl.dog.adoptedOn}}</td>
-                        </tr>
+                    <tr>
+                        <td>
+                            <strong>Age</strong>
+                        </td>
+                        <td>
+                            <input class="input" type="number" ng-model="dog.age" name="dAge" min="0.0" required=""/>
+                        </td>
+                    </tr>
+                    <tr ng-show="form.$submitted || form.dAge.$touched">
+                        <td colspan="2" class="error-small" ng-show="form.dAge.$error.required">Age is required!</td>
+                        <td colspan="2" class="error-small" ng-show="form.dAge.$error.min">Age must be > 0!</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Brought to shelter</strong>
+                        </td>
+                        <td>
+                            <input class="input" type="date" ng-model="dog.broughtToShelter" name="dBrought" required=""/>
+                        </td>
+                    </tr>
+                    <tr ng-show="form.$submitted || form.dBrought.$touched">
+                        <td colspan="2" class="error-small" ng-show="form.dBrought.$error.required">Brought to shelter date is required!</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Caretaker</strong>
+                        </td>
+                        <td>
+                            <input class="input" type="text" ng-model="dog.careTaker" name="dCareTaker"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Caretaker contact</strong>
+                        </td>
+                        <td>
+                            <input class="input" type="text" ng-model="dog.careTakerPhone" name="dCareTakerPhone" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Adopted?</strong>
+                        </td>
+                        <td>
+                            <label class="radio"><input type="radio" ng-model="dog.adopted" name="dAdopted" value="true" required=""/>Yes</label>
+                            <label class="radio"><input type="radio" ng-model="dog.adopted" name="dAdopted" value="false" required=""/>No</label>
+                        </td>
+                    </tr>
+                    <tr ng-show="form.dBrought.$touched">
+                        <td colspan="2" class="error-small" ng-show="form.dAdopted.$error.required">Information if adopted is required!</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Adopted on</strong>
+                        </td>
+                        <td>
+                        <td>
+                            <input class="input" type="date" ng-model="dog.adoptedOn" name="dAdoptedOn" />
+                        </td>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
                 <br />
                 <div class="box">
-                    <div class="content">
-                        <p>{{$ctrl.dog.description}}</p>
-                    </div>
+                    <textarea class="textarea" placeholder="Enter description..." ng-model="dog.description" name="dDescription"></textarea>
+                </div>
+                <div ng-show="form.$submitted || form.dDescription.$touched">
+                    <div class="error-small" ng-show="form.dDescription.$error.required">Description is required!</div>
                 </div>
             </div>
             <footer class="card-footer">
-                <a class="card-footer-item">Save</a>
+                <input type="submit" class="card-footer-item" ng-click="$ctrl.submit(form, dog)" />
             </footer>
         </div>
     </form>

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using TIN.Angular.Data;
 
-namespace TIN.Angular.Migrations
+namespace DogShelter.Migrations
 {
     [DbContext(typeof(DogContext))]
     partial class DogContextModelSnapshot : ModelSnapshot
@@ -24,7 +24,7 @@ namespace TIN.Angular.Migrations
 
                     b.Property<DateTime?>("AdoptedOn");
 
-                    b.Property<uint>("Age");
+                    b.Property<double>("Age");
 
                     b.Property<DateTime>("BroughtToShelter");
 
