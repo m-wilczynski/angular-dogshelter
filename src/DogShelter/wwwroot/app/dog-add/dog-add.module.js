@@ -1,7 +1,7 @@
 ﻿(function(angular) {
     "use strict";
 
-    angular.module("dogDetails",
+    angular.module("dogAdd",
     [
         "ngRoute"
     ]);

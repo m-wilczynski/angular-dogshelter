@@ -29,8 +29,9 @@
             return new JsonResult(await _context.Dogs.SingleOrDefaultAsync(dog => dog.Id == id));
         }
 
+        [Route("add")]
         [HttpPost]
-        public async Task<IActionResult> AddNewDog(Dog dog)
+        public async Task<IActionResult> AddNewDog([FromBody]Dog dog)
         {
             _context.Dogs.Add(dog);
             try
@@ -41,11 +42,11 @@
             {
                 return new JsonResult(new AjaxResult(false, "Failed to add new dog."));
             }
-            return new JsonResult(new AjaxResult(true, "New dog added successfully."));
+            return new JsonResult(new EntityAddedAjaxResult(dog.Id, "New dog added successfully."));
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateExistingDog(Dog dog)
+        public async Task<IActionResult> UpdateExistingDog([FromBody]Dog dog)
         {
             var attached = _context.Dogs.Attach(dog);
             _context.Entry(attached).Entity.State = EntityState.Modified;

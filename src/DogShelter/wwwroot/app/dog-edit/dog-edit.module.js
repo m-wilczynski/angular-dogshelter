@@ -1,5 +1,8 @@
-﻿"use strict";
+﻿(function(angular) {
+    "use strict";
 
-angular.module("dogEdit", [
-    "ngRoute"
-]);
+    angular.module("dogEdit",
+    [
+        "ngRoute"
+    ]);
+})(angular);

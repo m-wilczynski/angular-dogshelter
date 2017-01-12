@@ -1,3 +1,5 @@
-﻿"use strict";
+﻿(function(angular) {
+    "use strict";
 
-angular.module("dogList", []);
+    angular.module("dogList", []);
+})(angular);
