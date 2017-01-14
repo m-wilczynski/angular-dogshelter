@@ -5,16 +5,40 @@
     {
         templateUrl: 'app/dog-edit/dog-edit.template.html',
         controller: [
-            '$routeParams', '$http',
-            function DogEditController($scope, $http) {
+            '$http', '$routeParams', '$location', '$scope',
+            function DogEditController($http, $routeParams, $location, $scope) {
 
-                this.model = {};
-                this.submit = function(form, dog) {
+                var self = this;
+                var location = $location;
+                var scope = $scope;
+
+                $http.get('api/dog/' + $routeParams.dogId).then(function (response) {
+                    if (response.data.broughtToShelter)
+                        response.data.broughtToShelter = new Date(response.data.broughtToShelter);
+                    if (response.data.adoptedOn)
+                        response.data.adoptedOn = new Date(response.data.adoptedOn);
+                    scope.dog = response.data;
+                });
+
+                this.submit = function (form, dog) {
                     if (form.$valid) {
-                        alert(dog);
+                        $http(
+                        {
+                            url: 'api/dog/edit',
+                            method: 'PUT',
+                            data: dog,
+                            headers: { 'Content-Type': 'application/json' }
+                        }).success(function (response) {
+                            if (!response.success) {
+                                alert(response.message);
+                                return;
+                            }
+                            location.path('/details/' + response.modelId);
+                        }).error(function (response) {
+                            alert(response.message);
+                        });
                     }
                 }
-                this.dog = angular.copy($scope.model);
             }
         ]
     });

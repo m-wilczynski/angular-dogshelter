@@ -7,8 +7,8 @@
         controller: [
             '$routeParams', '$http',
             function DogDetailsController($routeParams, $http) {
+
                 var self = this;
-                self.orderProp = "name";
 
                 $http.get('api/dog/' + $routeParams.dogId).then(function (response) {
                     self.dog = response.data;

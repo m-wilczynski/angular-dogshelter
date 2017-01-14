@@ -45,11 +45,12 @@
             return new JsonResult(new EntityAddedAjaxResult(dog.Id, "New dog added successfully."));
         }
 
+        [Route("edit")]
         [HttpPut]
         public async Task<IActionResult> UpdateExistingDog([FromBody]Dog dog)
         {
-            var attached = _context.Dogs.Attach(dog);
-            _context.Entry(attached).Entity.State = EntityState.Modified;
+            _context.Dogs.Attach(dog);
+            _context.Entry(dog).State = EntityState.Modified;
             try
             {
                 await _context.SaveChangesAsync();
@@ -58,7 +59,7 @@
             {
                 return new JsonResult(new AjaxResult(false, "Failed to update dog data."));
             }
-            return new JsonResult(new AjaxResult(true, "Dog data updated successfully."));
+            return new JsonResult(new EntityUpdatedAjaxResult(dog.Id, "Dog data updated successfully."));
         }
     }
 }

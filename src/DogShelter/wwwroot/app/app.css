@@ -116,7 +116,7 @@
     text-align: center;
     margin: 0 auto;
     max-width: 150px;
-    padding-bottom: 10px;
+    margin-top: 10px;
 }
 
 .sex-wrapper div {
@@ -207,4 +207,8 @@ input[type=submit]:hover {
     height: 24px;
     font-family: 'Source Sans Pro';
     color: #4aa2c2;
+}
+
+.description-content {
+    white-space: pre-wrap;
 }

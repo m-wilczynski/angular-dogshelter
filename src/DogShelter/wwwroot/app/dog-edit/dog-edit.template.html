@@ -10,8 +10,8 @@
                 </div>
                 <div class="sex-wrapper">
                     <div class="sex-choice">
-                        <label class="radio"><input type="radio" ng-model="dog.male" name="dGender" value="true" required=""/>Male</label>
-                        <label class="radio"><input type="radio" ng-model="dog.male" name="dGender" value="false" required=""/>Female</label>
+                        <label class="radio"><input type="radio" ng-model="dog.male" name="dGender" ng-value="true" required=""/>Male</label>
+                        <label class="radio"><input type="radio" ng-model="dog.male" name="dGender" ng-value="false" required=""/>Female</label>
                     </div>
                     <div ng-show="form.$submitted">
                         <div class="error-small" ng-show="form.dGender.$error.required">Gender is required!</div>
@@ -21,72 +21,72 @@
             <div class="card-content">
                 <table class="edit-table">
                     <tbody>
-                    <tr>
-                        <td>
-                            <strong>Age</strong>
-                        </td>
-                        <td>
-                            <input class="input" type="number" ng-model="dog.age" name="dAge" min="0.0" required=""/>
-                        </td>
-                    </tr>
-                    <tr ng-show="form.$submitted || form.dAge.$touched">
-                        <td colspan="2" class="error-small" ng-show="form.dAge.$error.required">Age is required!</td>
-                        <td colspan="2" class="error-small" ng-show="form.dAge.$error.min">Age must be > 0!</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>Brought to shelter</strong>
-                        </td>
-                        <td>
-                            <input class="input" type="date" ng-model="dog.broughtToShelter" name="dBrought" required=""/>
-                        </td>
-                    </tr>
-                    <tr ng-show="form.$submitted || form.dBrought.$touched">
-                        <td colspan="2" class="error-small" ng-show="form.dBrought.$error.required">Brought to shelter date is required!</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>Caretaker</strong>
-                        </td>
-                        <td>
-                            <input class="input" type="text" ng-model="dog.careTaker" name="dCareTaker"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>Caretaker contact</strong>
-                        </td>
-                        <td>
-                            <input class="input" type="text" ng-model="dog.careTakerPhone" name="dCareTakerPhone" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>Adopted?</strong>
-                        </td>
-                        <td>
-                            <label class="radio"><input type="radio" ng-model="dog.adopted" name="dAdopted" value="true" required=""/>Yes</label>
-                            <label class="radio"><input type="radio" ng-model="dog.adopted" name="dAdopted" value="false" required=""/>No</label>
-                        </td>
-                    </tr>
-                    <tr ng-show="form.dBrought.$touched">
-                        <td colspan="2" class="error-small" ng-show="form.dAdopted.$error.required">Information if adopted is required!</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>Adopted on</strong>
-                        </td>
-                        <td>
-                        <td>
-                            <input class="input" type="date" ng-model="dog.adoptedOn" name="dAdoptedOn" />
-                        </td>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>
+                                <strong>Age</strong>
+                            </td>
+                            <td>
+                                <input class="input" type="number" ng-model="dog.age" name="dAge" min="0.0" required="" />
+                            </td>
+                            <td ng-show="form.$submitted || form.dAge.$touched">
+                                <div colspan="2" class="error-small" ng-show="form.dAge.$error.required">Age is required!</div>
+                                <div colspan="2" class="error-small" ng-show="form.dAge.$error.min">Age must be > 0!</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Brought to shelter</strong>
+                            </td>
+                            <td>
+                                <input class="input" type="date" ng-model="dog.broughtToShelter" name="dBrought" required="" />
+                            </td>
+                            <td ng-show="form.$submitted || form.dBrought.$touched">
+                                <div colspan="2" class="error-small" ng-show="form.dBrought.$error.required">Brought to shelter date is required!</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Caretaker</strong>
+                            </td>
+                            <td>
+                                <input class="input" type="text" ng-model="dog.careTaker" name="dCareTaker" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Caretaker contact</strong>
+                            </td>
+                            <td>
+                                <input class="input" type="text" ng-model="dog.careTakerPhone" name="dCareTakerPhone" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Adopted?</strong>
+                            </td>
+                            <td>
+                                <label class="radio"><input type="radio" ng-model="dog.adopted" name="dAdopted" ng-value="true" required="" />Yes</label>
+                                <label class="radio"><input type="radio" ng-model="dog.adopted" name="dAdopted" ng-value="false" required="" />No</label>
+                            </td>
+                            <td ng-show="form.$submitted">
+                                <div colspan="2" class="error-small" ng-show="form.dAdopted.$error.required">Information if adopted is required!</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Adopted on</strong>
+                            </td>
+                            <td>
+                            <td>
+                                <input class="input" type="date" ng-model="dog.adoptedOn" name="dAdoptedOn" />
+                            </td>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
                 <br />
                 <div class="box">
-                    <textarea class="textarea" placeholder="Enter description..." ng-model="dog.description" name="dDescription"></textarea>
+                    <textarea class="textarea" placeholder="Enter description..." ng-model="dog.description" name="dDescription" required=""></textarea>
                 </div>
                 <div ng-show="form.$submitted || form.dDescription.$touched">
                     <div class="error-small" ng-show="form.dDescription.$error.required">Description is required!</div>
