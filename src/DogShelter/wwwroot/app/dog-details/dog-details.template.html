@@ -24,7 +24,7 @@
                     <td>
                         <strong>Brought to shelter</strong>
                     </td>
-                    <td>{{$ctrl.dog.broughtToShelter}}</td>
+                    <td>{{$ctrl.dog.broughtToShelter | date:'yyyy-MM-dd'}}</td>
                 </tr>
                 <tr>
                     <td>
@@ -42,13 +42,13 @@
                     <td>
                         <strong>Adopted?</strong>
                     </td>
-                    <td>{{$ctrl.dog.adopted ? "YES" : "NO"}}</td>
+                    <td>{{$ctrl.dog.adopted | yesNo }}</td>
                 </tr>
                 <tr>
                     <td>
                         <strong>Adopted on</strong>
                     </td>
-                    <td>{{$ctrl.dog.adoptedOn}}</td>
+                    <td>{{$ctrl.dog.adoptedOn  | date:'yyyy-MM-dd'}}</td>
                 </tr>
                 </tbody>
             </table>

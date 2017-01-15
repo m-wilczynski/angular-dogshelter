@@ -30,3 +30,12 @@ var dogShelterApp = angular.module("dogShelterApp", [
         }
     ]);
 })(dogShelterApp);
+
+(function(dogShelterApp) {
+    dogShelterApp.filter('yesNo',
+        function() {
+            return function(input) {
+                return input ? 'YES' : 'NO';
+            }
+        });
+})(dogShelterApp);
