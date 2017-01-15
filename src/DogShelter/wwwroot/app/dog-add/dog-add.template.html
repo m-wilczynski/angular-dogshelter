@@ -49,7 +49,11 @@
                             <strong>Caretaker</strong>
                         </td>
                         <td>
-                            <input class="input" type="text" ng-model="dog.CareTaker" name="dCareTaker"/>
+                            <input class="input" type="text" ng-model="dog.CareTaker" ng-pattern="/^[a-zA-z-]+$/" name="dCareTaker" required=""/>
+                        </td>
+                        <td ng-show="form.$submitted || form.dCareTaker.$touched">
+                            <div colspan="2" class="error-small" ng-show="form.dCareTaker.$error.required">Care taker is required!</div>
+                            <div colspan="2" class="error-small" ng-show="form.dCareTaker.$error.pattern">Care taker's name can consists of letters only!</div>
                         </td>
                     </tr>
                     <tr>
@@ -57,7 +61,11 @@
                             <strong>Caretaker contact</strong>
                         </td>
                         <td>
-                            <input class="input" type="text" ng-model="dog.CareTakerPhone" name="dCareTakerPhone" />
+                            <input class="input" type="text" ng-model="dog.CareTakerPhone" ng-pattern="/^[0-9]{9,}$/" name="dCareTakerPhone" required=""/>
+                        </td>
+                        <td ng-show="form.$submitted || form.dCareTakerPhone.$touched">
+                            <div colspan="2" class="error-small" ng-show="form.dCareTakerPhone.$error.required">Phone for care taker is required!</div>
+                            <div colspan="2" class="error-small" ng-show="form.dCareTakerPhone.$error.pattern">Phone number must be valid (9 or more numbers only)!</div>
                         </td>
                     </tr>
                     <tr>
