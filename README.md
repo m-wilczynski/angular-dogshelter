@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://s28.postimg.org/b9p4pkbel/logo.png" />
+  <img src="https://raw.githubusercontent.com/m-wilczynski/angular-dogshelter/master/src/DogShelter/wwwroot/img/logo.png" />
 </p>
 
 **Description**
